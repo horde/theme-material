@@ -3160,9 +3160,9 @@
         }
         .horde-navipoint:last-child .horde-dropdown ul li ul {
             margin-top: -25px;
-            margin-left: 100%;
+            right: 100%;
+            margin-right: -2px;
             top: 24px;
-            right: 312px;
         }
    
     
@@ -3214,9 +3214,9 @@
 
         .horde-navipoint:last-child .horde-dropdown ul li ul {
             margin-top: -25px;
-            margin-left: 100%;
+            right: 100%;
+            margin-right: -2px;
             top: 24px;
-            right: 265px;
         }
        
 
@@ -3274,9 +3274,9 @@
         
         .horde-navipoint:last-child .horde-dropdown ul li ul {
             margin-top: -25px;
-            margin-left: 100%;
+            right: 100%;
+            margin-right: -2px;
             top: 24px;
-            right: 244px;
         }
         
     }
@@ -3353,9 +3353,9 @@
 
         .horde-navipoint:last-child .horde-dropdown ul li ul {
             margin-top: -25px;
-            margin-left: 100%;
+            right: 100%;
+            margin-right: -2px;
             top: 24px;
-            right: 254px;
         }
        
     }
