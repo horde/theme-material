@@ -13,11 +13,12 @@
     --on-surface: #6f6f6f;
     --error: #e6f7fe;
     --on-error: #223a46;
-    
+    --error-color: #d32f2f;
+    --error-bg: #fef2f2;
+
     /* Corners */
-    
-    --corner-radius:
-    3px;
+
+    --corner-radius: 4px;
     
     }
     
@@ -334,50 +335,153 @@
         background: #fff;
     }
     
-    /* Form styles. */
-    .horde-form table {
+    /* Form styles — modern layout: labels above controls, flexbox. */
+
+    /* Suppress table appearance (legacy + V3) */
+    .horde-form table,
+    .horde-form .form-table {
         width: 100%;
-        padding: 2px;
         border-collapse: collapse;
-        border-spacing: 0;
     }
-    .horde-form tr {
-        vertical-align: top;
+    .horde-form table tr,
+    .horde-form .form-table tr {
+        display: flex;
+        flex-direction: column;
+        padding: 0.5em 0;
     }
-    .horde-form td {
-        padding-bottom: 5px;
-    }
-    
-    
-    .horde-form-buttons {
-        padding: 10px;
-        margin: 10px 0;
-    
-        /*
-          krueger@b1systems.de
-          correct border and background for button panel notices
-          background-color: #ebeff0;
-        */
-        background-color: #FFFFFF;
-        border: 1px solid rgba(0, 0, 0, 0.12);
-        border-radius: var(--corner-radius);
-    
+    .horde-form table td,
+    .horde-form .form-table td {
+        display: block;
+        width: 100%;
+        padding: 0;
     }
     
-    .horde-form .horde-form-buttons {
-        padding-left: 15%;
+    
+    /* Buttons area (legacy + V3) */
+    .horde-form-buttons,
+    .horde-form .form-buttons {
+        padding: 1em 0;
+        margin-top: 0.5em;
+        background: none;
+        border: none;
+        border-radius: 0;
     }
-    .horde-form td.horde-form-label {
-        padding: 5px 9px 0 0;
-        text-align: right;
+    .horde-form .horde-form-buttons,
+    .horde-form .form-buttons-inner {
+        display: flex;
+        gap: 0.5em;
+        padding-left: 0;
     }
+
+    /* Labels: left-aligned above control (legacy + V3) */
+    .horde-form td.horde-form-label,
+    .horde-form td.label {
+        text-align: left;
+        font-weight: 500;
+        font-size: 0.875rem;
+        color: var(--on-background);
+        padding: 0 0 0.3em 0;
+        width: auto !important; /* override inline style="width: 15%" from renderer */
+    }
+
+    /* Required marker (legacy + V3) — subtle until error state */
     .horde-form-error {
-        color: #f00;
+        color: var(--error-color);
+        font-weight: bold;
     }
-    .horde-form-field-description {
-        color: #666;
-        font-size: 70%;
+    .horde-form .required {
+        color: var(--on-background);
+        font-weight: normal;
     }
+    .horde-form td.control.error ~ td .required,
+    .horde-form tr:has(td.control.error) .required {
+        color: var(--error-color);
+    }
+
+    /* Optional marker (V3) */
+    .horde-form .optional {
+        color: var(--on-background);
+        font-weight: normal;
+        font-size: 0.8125rem;
+    }
+
+    /* Field description / help text (legacy + V3) */
+    .horde-form-field-description,
+    .horde-form .help-text {
+        color: var(--on-background);
+        font-size: 0.75rem;
+        display: block;
+        margin-top: 0.2em;
+    }
+
+    /* Validation errors (V3) */
+    .horde-form .field-error {
+        color: var(--error-color);
+        font-size: 0.8125rem;
+        display: block;
+        margin-top: 0.2em;
+    }
+    .horde-form td.control.error input,
+    .horde-form td.control.error select,
+    .horde-form td.control.error textarea {
+        border-color: var(--error-color);
+    }
+
+    /* Error summary (V3) */
+    .horde-form .form-errors {
+        color: var(--error-color);
+        margin: 0.75em 0;
+        padding: 0.75em 1em;
+        border: 1px solid var(--error-color);
+        border-radius: var(--corner-radius);
+        background: var(--error-bg);
+        font-size: 0.875rem;
+    }
+
+    /* Section headers (V3) */
+    .horde-form .section-header td {
+        font-weight: 500;
+        font-size: 1rem;
+        padding: 0.75em 0 0.3em;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        color: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Control cell (V3) */
+    .horde-form td.control {
+        padding-bottom: 0.5em;
+    }
+    .horde-form td.control input[type="text"],
+    .horde-form td.control input[type="email"],
+    .horde-form td.control input[type="number"],
+    .horde-form td.control select,
+    .horde-form td.control textarea {
+        width: 100%;
+        max-width: 40em;
+        box-sizing: border-box;
+    }
+
+    /* V3 button variant classes */
+    .horde-form .form-buttons-inner input.horde-default {
+        background-color: var(--primary);
+        color: var(--on-primary);
+    }
+    .horde-form .form-buttons-inner input.horde-default:hover {
+        background-color: var(--primary-variant);
+    }
+    .horde-form .form-buttons-inner input.horde-delete {
+        background-color: var(--error-color);
+        color: #fff;
+    }
+    .horde-form .form-buttons-inner input.horde-delete:hover {
+        background-color: #c62828;
+    }
+
+    /* Striped rows (V3) */
+    .horde-form .odd {
+        background-color: rgba(0, 0, 0, 0.02);
+    }
+
     input, select, textarea {
         font-size: 100%;
         font-weight: normal;
@@ -398,52 +502,51 @@
     
     
     
-    input[type=text] {
-    
-    
-    
+    input[type=text],
+    input[type=email],
+    input[type=number],
+    input[type=password],
+    input[type=url],
+    input[type=tel] {
         font: inherit;
         letter-spacing: inherit;
         color: currentColor;
-        box-sizing: content-box;
+        box-sizing: border-box;
         background: none;
-        height: 1.4375em;
+        height: auto;
         margin: 0;
         -webkit-tap-highlight-color: transparent;
         display: block;
         min-width: 0;
-        width: calc(100% - 28px);
+        width: 100%;
+        max-width: 40em;
         padding: 16.5px 14px;
-        
-    
-    /*
-      -webkit-animation-name: mui-auto-fill-cancel;
-        animation-name: mui-auto-fill-cancel;
-        -webkit-animation-duration: 10ms;
-        animation-duration: 10ms;
-    */
-    
     }
-    
-    input, select {
-        min-height: 20px;
-    }
-    input, option {
-        padding: 1px 5px;
-    }
+
     select {
-        padding: 2px 0 0 2px;
+        font: inherit;
+        padding: 16.5px 14px;
+        box-sizing: border-box;
+        background: none;
+        display: block;
+        width: 100%;
+        max-width: 40em;
+    }
+
+    textarea {
+        font: inherit;
+        padding: 14px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 40em;
     }
     
     
     input:focus, textarea:focus, select:focus {
         background-color: #fff;
-        /*
-        krueger@b1-systems.de
-        remove black border
-        border-color: #000;
-        */
-        border: 1px solid #000;
+        border-color: var(--primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(25, 118, 213, 0.15);
     }
     
     
@@ -462,6 +565,7 @@
         padding: 10px 15px !important;
         text-decoration: none;
         background-color: var(--primary);
+        color: var(--on-primary);
         font-weight: 500;
         font-size: 0.9375rem;
         line-height: 1.75;
@@ -774,9 +878,18 @@
         -webkit-box-shadow: 0 0 2em #ccc;
         box-shadow: 0 0 2em #ccc;
     }
-    .horde-form-header {
+    /* Form header / title (legacy + V3) */
+    .horde-form-header,
+    .horde-form .form-header {
         margin-bottom: 1em;
-        border-bottom: thin dashed #ccc;
+        padding-bottom: 0.5em;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.12);
+    }
+    .horde-form .form-header h2 {
+        margin: 0;
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: rgba(0, 0, 0, 0.87);
     }
     div.modal-form .notices {
         padding-top: 1em;
@@ -899,6 +1012,7 @@
     }
     .tabset ul {
         list-style: none;
+        padding-left: 1em;
     }
     .tabset li {
         background: url("graphics/tab.png") repeat-x;
