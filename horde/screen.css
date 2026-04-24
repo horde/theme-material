@@ -384,17 +384,16 @@
         width: auto !important; /* override inline style="width: 15%" from renderer */
     }
 
-    /* Required marker (legacy + V3) — subtle until error state */
+    /* Required marker (legacy + V3) — only the asterisk span, subtle until error */
     .horde-form-error {
         color: var(--error-color);
         font-weight: bold;
     }
-    .horde-form .required {
+    .horde-form span.required {
         color: var(--on-background);
         font-weight: normal;
     }
-    .horde-form td.control.error ~ td .required,
-    .horde-form tr:has(td.control.error) .required {
+    .horde-form tr:has(td.control.error) span.required {
         color: var(--error-color);
     }
 
@@ -480,6 +479,37 @@
     /* Striped rows (V3) */
     .horde-form .odd {
         background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    /* Checkbox / boolean controls (V3)
+       Override legacy .checkbox rule that sets 14×14px on the class —
+       V3 renderSet() wraps each checkbox+label in <div class="checkbox">
+       which must not be crushed.  The legacy rule targets <input class="checkbox">
+       but also matches <div class="checkbox">. */
+    .horde-form div.checkbox {
+        display: flex;
+        align-items: center;
+        gap: 0.4em;
+        width: auto !important;
+        height: auto !important;
+        border: none;
+        background: transparent;
+        padding: 0.15em 0;
+        overflow: visible;
+    }
+    .horde-form div.checkbox label {
+        font-weight: normal;
+        font-size: 0.9em;
+        color: var(--on-surface);
+        cursor: pointer;
+    }
+    .horde-form td.control input[type="checkbox"] {
+        width: auto;
+        height: auto;
+        min-width: 1em;
+        flex-shrink: 0;
+        margin: 0;
+        cursor: pointer;
     }
 
     input, select, textarea {
