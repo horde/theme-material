@@ -125,6 +125,11 @@
         background: #fff;
         vertical-align: top;
     }
+    .headerbox td img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
     .headerbox form {
         padding: 2px;
     }
@@ -147,6 +152,8 @@
     }
     .header img {
         vertical-align: bottom;
+        width: 16px;
+        height: 16px;
     }
     .header input, .header select {
         font-size: 80%;
@@ -254,6 +261,12 @@
         margin-left: 5px;
         padding: 0 5px;
     }
+    table.horde-table td img,
+    table.horde-table th img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
     .horde-table-header, table.horde-table thead tr, table.horde-table th {
     
     }
@@ -355,6 +368,11 @@
         width: 100%;
         padding: 0;
     }
+    .horde-form td img {
+        max-width: 16px;
+        max-height: 16px;
+        vertical-align: middle;
+    }
     
     
     /* Buttons area (legacy + V3) */
@@ -365,6 +383,11 @@
         background: none;
         border: none;
         border-radius: 0;
+    }
+    .horde-form-buttons img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
     }
     .horde-form .horde-form-buttons,
     .horde-form .form-buttons-inner {
@@ -1144,6 +1167,11 @@
         padding-top: 5px;
         display:none;
     }
+    .blockIcons img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
+    }
     .blockHeader:hover .blockIcons {
         display: block;
     }
@@ -1154,6 +1182,11 @@
     }
     .helplink {
         cursor: help;
+    }
+    .helplink img {
+        width: 16px;
+        height: 16px;
+        vertical-align: middle;
     }
     .help {
         background: #fff;
