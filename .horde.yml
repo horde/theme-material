@@ -3,7 +3,8 @@ id: theme-material
 name: theme-material
 full: Horde Material UI Theme
 description: >-
-  This theme intends to get the Horde UI as close as possible to Material UI standards.
+  This theme intends to get the Horde UI as close as possible to Material UI
+  standards.
 list: ~
 type: horde-theme
 homepage: https://www.horde.org/apps/horde
@@ -11,20 +12,21 @@ authors:
   -
     name: Ralf Lang
     user: rlang
-    email: lang@b1-systems.de
+    email: ralf.lang@ralf-lang.de
     active: true
     role: lead
 version:
-  release: 1.0.0
+  release: 2.0.0
   api: 1.0.0
 state:
-  release: stable
+  release:
   api: stable
 license:
   identifier: LGPL-2
   uri: http://www.horde.org/licenses/lgpl
 dependencies:
   required:
-    php: ^7 || ^8
+    php: ^8.1
     composer:
       horde/horde: '*'
+vendor: horde
