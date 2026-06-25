@@ -134,11 +134,21 @@ span.kronolithDialogWarning {
 
 /* Event/task form dialogs */
 .kronolithDialog {
-    /*leduy@b1-systems.de
-    width: 710px;*/
-    width:810px;
+    /* Was width: 710px in the default theme, then widened to 810px here for
+     * leduy@b1-systems.de. Both are too big on modern displays at browser
+     * magnification 1. Constrain to a viewport-aware width so the add-event
+     * dialog stops consuming the whole screen (issue #64). The id-scoped
+     * rules below tune individual dialogs if needed. */
+    width: auto;
+    max-width: min(720px, 90vw);
     padding: 10px 20px;
     border: 1px #999 solid;
+    box-sizing: border-box;
+}
+#kronolithEventDialog,
+#kronolithTaskDialog,
+#kronolithCalendarDialog {
+    max-width: min(720px, 90vw);
 }
 #RB_window .kronolithDialog p {
     margin-bottom: 5px;
