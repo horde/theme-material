@@ -2328,10 +2328,10 @@
     }
     .horde-settings {
         /*float: left;*/
-        width: 22px;
-        height: 27px;
-       /* margin: 7px 0 0 0;*/
-       margin: 3px 0 0 0;
+        width: 28px;
+        height: 28px;
+        margin: 6px 0 0 0;
+        vertical-align: middle;
     }
     #horde-search {
         float:right;
@@ -2483,13 +2483,21 @@
     .horde-icon-settings {
         background-image: url("graphics/settings.png");
         background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        opacity: 0.85;
+        transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        border-radius: var(--corner-radius);
     }
     .horde-icon-settings:hover {
         background-image: url("graphics/settings-active.png");
+        opacity: 1;
+        background-color: var(--primary-variant);
     }
     .horde-icon-settings a {
-        width: 22px;
-        height: 27px;
+        width: 28px;
+        height: 28px;
+        display: block;
     }
     
     /* Sub bar. */
