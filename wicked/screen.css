@@ -1,0 +1,25 @@
+/* Material UI overrides for Wicked.
+ *
+ * Targets the page editor (.wicked-page-editor on the textarea introduced in
+ * wicked refactor/review-feedback) so the wiki editing surface takes the
+ * full available viewport width and a generous height, matching Material's
+ * roomy default.
+ */
+
+.wicked-page-editor {
+    width: 100%;
+    min-height: 70vh;
+    box-sizing: border-box;
+    font-family: monospace;
+    font-size: 1em;
+    line-height: 1.4;
+    padding: 0.6em 0.8em;
+    border-radius: var(--corner-radius);
+    border: 1px solid #ccc;
+}
+
+.wicked-page-editor:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(25, 118, 213, 0.25);
+}
