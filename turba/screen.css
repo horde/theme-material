@@ -1,0 +1,20 @@
+/* Material UI overrides for Turba.
+ *
+ * The responsive contact view's .turba-container is centred on wide screens
+ * via .container { margin: 0 auto } from upstream defaults, leaving contact
+ * content stranded in the middle of large displays. Material left-aligns the
+ * container and lets content breathe up to a generous max-width, matching
+ * the layout language of the other Material-themed apps.
+ */
+
+.horde-responsive .turba-container {
+    margin-left: 0;
+    margin-right: auto;
+    max-width: min(1400px, 100%);
+    padding-left: var(--space-lg, 1.25rem);
+    padding-right: var(--space-lg, 1.25rem);
+}
+
+.horde-responsive .contact-detail {
+    margin-left: 0;
+}
