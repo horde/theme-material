@@ -9,17 +9,16 @@ list: ~
 type: horde-theme
 homepage: https://www.horde.org/apps/horde
 authors:
-  -
-    name: Ralf Lang
+  - name: Ralf Lang
     user: rlang
     email: ralf.lang@ralf-lang.de
     active: true
     role: lead
 version:
-  release: 2.0.0
+  release: 2.0.1
   api: 1.0.0
 state:
-  release:
+  release: stable
   api: stable
 license:
   identifier: LGPL-2
